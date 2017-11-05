@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Windows7+Hexo+Coding搭建个人博客 | FENG&#39;BLOG
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>FENG'BLOG</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Windows7+Hexo+Coding搭建个人博客</h2>
+  <p class="post-date">2017-04-07</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>买了两年的域名一直没用，最近发现到期了又不舍得丢掉，所以续费了。想想当初买域名也是为了想建个人博客，但一直没有实施。最近发现很多搞独立博客的大牛们纷纷转去搞静态博客了，把博客托管到Github或者国内的Coding可以免去买空间的开销，真是太棒了。觉得很有意思，于是也想玩玩，下面就记录一下我的博客搭建过程。<a id="more"></a><br>搜索了一下发现hexo还是比较简单的，尤其是在Windows上安装更是简单。下面就开搞，go~~~<br>关于hexo就不多介绍，自行百度，谷歌。<br>hexo依赖于Nodejs，所以我们首先必须按照Node.js。</p>
+<h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><blockquote>
+<ul>
+<li>Node安装，从Node官网下载windows安装包。<a href="https://nodejs.org/" target="_blank" rel="external">Node官网</a>一路next安装即可。</li>
+<li>git安装，从git官网下载windows版的git安装包。<a href="https://git-scm.com/downloads" title="git官网" target="_blank" rel="external">git官网</a><br>安装步骤及用户设置参考：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000/" title="廖雪峰的博客" target="_blank" rel="external">廖雪峰的博客</a></li>
+</ul>
+</blockquote>
+<p>验证环境：<br>进入你想创建博客的目录，比如我打算在D盘创建，然后鼠标右键选择Git Bash进入如下窗口：<br><img src="http://oo2hhzint.bkt.clouddn.com/gitbash.png" alt="image"></p>
+<p>测试一下Node环境是否安装完成，在GitBash界面输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  node -v</div></pre></td></tr></table></figure>
+<p>如果已经正确安装Node会显示所安装的Node版本号，如图：<br><img src="http://oo2hhzint.bkt.clouddn.com/gitbash2.png" alt="image"></p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>下面开始安装hexo,在GitBash命令窗口中输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo -g</div></pre></td></tr></table></figure>
+<p><img src="http://oo2hhzint.bkt.clouddn.com/gitbash3.png" alt="image"></p>
+<p>输入如下命令确认是否安装成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo -v</div></pre></td></tr></table></figure>
+<p><img src="http://oo2hhzint.bkt.clouddn.com/gitbash4.png" alt="image"></p>
+<h2 id="初始化博客目录"><a href="#初始化博客目录" class="headerlink" title="初始化博客目录"></a>初始化博客目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$   hexo init hexo</div></pre></td></tr></table></figure>
+<p>hexo 为你的本地博客目录</p>
+<p><img src="http://oo2hhzint.bkt.clouddn.com/gitbash5.png" alt="image"></p>
+<p><img src="http://oo2hhzint.bkt.clouddn.com/gitbash6.png" alt="image"></p>
+<p>进入hexo文件夹，目录结构如图：<br><img src="http://oo2hhzint.bkt.clouddn.com/gitbash7.png" alt="image"></p>
+   <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">├── .deploy       #需要部署的文件</div><div class="line">├── node_modules  #Hexo插件</div><div class="line">├── public        #生成的静态网页文件</div><div class="line">├── scaffolds     #模板</div><div class="line">├── source        #博客正文和其他源文件, 404 favicon CNAME 等都应该放在这里</div><div class="line">|      |──drafts  #草稿</div><div class="line">|      └──posts   #文章</div><div class="line">├── themes        #主题</div><div class="line">├── _config.yml   #全局配置文件</div><div class="line">└── package.json</div></pre></td></tr></table></figure>
+<h2 id="运行博客"><a href="#运行博客" class="headerlink" title="运行博客"></a>运行博客</h2><p>好了，把博客运行起来吧。输入</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo -g</div><div class="line">$ hexo -s</div></pre></td></tr></table></figure>
+<p><img src="http://oo2hhzint.bkt.clouddn.com/gitbash8.png" alt="image"></p>
+<p>打开浏览器输入：localhost:4000<br><img src="http://oo2hhzint.bkt.clouddn.com/gitbash9.png" alt="image"></p>
+<h2 id="Coding创建博客项目"><a href="#Coding创建博客项目" class="headerlink" title="Coding创建博客项目"></a>Coding创建博客项目</h2><p>到<a href="https://coding.net/" target="_blank" rel="external">Coding</a>网站注册账号，并创建博客项目。比如我创建了一个博客项目phoenixch.<br><img src="http://oo2hhzint.bkt.clouddn.com/coding1.png" alt="image"><br>注意：这里的项目名称要和你的账号名称一致<br>点击Pages服务<br><img src="http://oo2hhzint.bkt.clouddn.com/coding2.png" alt="image"><br>部署来源选择mast分支并保存后点击上方的那个链接，如我的为：<br><a href="http://phoenixch.coding.me/phoenixch" target="_blank" rel="external">http://phoenixch.coding.me/phoenixch</a><br>进入到你的博客也没，当然现在什么都没有啦，如果你有域名，可以在这里绑定。</p>
+<h2 id="本地hexo项目托管到Coding上"><a href="#本地hexo项目托管到Coding上" class="headerlink" title="本地hexo项目托管到Coding上"></a>本地hexo项目托管到Coding上</h2><p>我们的目的是本地写好文章生成静态文件后用git自动提交到Coding上更新我们的博客。</p>
+<h3 id="配置git相关信息"><a href="#配置git相关信息" class="headerlink" title="配置git相关信息"></a>配置git相关信息</h3><p>GitBash中输入命令安装git插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git –-save</div></pre></td></tr></table></figure>
+<p>配置用户名，yourname随意起个名字</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config –-global user.name <span class="string">"yourname"</span></div></pre></td></tr></table></figure>
+<p>配置邮箱，yourmail填你自己的邮箱就行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config –-global user.email <span class="string">"youremail"</span></div></pre></td></tr></table></figure>
+<p>生成ssh公钥，yourname@gmail.com必须和上面配置的一致</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"yourname@gmail.com"</span></div></pre></td></tr></table></figure>
+<h3 id="Coding上部署公钥"><a href="#Coding上部署公钥" class="headerlink" title="Coding上部署公钥"></a>Coding上部署公钥</h3><p>默认生成的公钥保存在 C:\Users\Administrator.ssh\id_rsa.pub，用记事本打开id_rsa.pub并复制全部内容<br>打开Conding【设置】-&gt;【部署公钥】粘贴公钥，勾选【授予推送权限】保存。<br><img src="http://oo2hhzint.bkt.clouddn.com/coding3.png" alt="image"></p>
+<h3 id="配置博客git地址"><a href="#配置博客git地址" class="headerlink" title="配置博客git地址"></a>配置博客git地址</h3><p>回到本地博客目录hexo，打开_config.yml配置文件，修改如下：<br><img src="http://oo2hhzint.bkt.clouddn.com/coding4.png" alt="image"></p>
+<p>注意：type,repo冒号后要多加个英文空格，不然会报错。<br>这里的repo为你的Coding仓库地址，可以这样查看：<br><img src="http://oo2hhzint.bkt.clouddn.com/coding5.png" alt="image"></p>
+<h3 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h3><p>好啦，下面试一下是否能实现git提交，GitBash中输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure>
+<p>   这里会让你输入Coding账号和密码。如果一切正常的话在Coding上面会看到我们的本地静态博客文件（public)目录下的文件已经上传上去了。<br>   再次打开我们的博客如：我的 <a href="http://phoenixch.coding.me/phoenixch" target="_blank" rel="external">http://phoenixch.coding.me/phoenixch</a><br>   就会发现博客已经更新啦。</p>
+<p>   <img src="http://oo2hhzint.bkt.clouddn.com/coding6.png" alt="image"></p>
+<p>   博客已经搭建完成，当然hexo还有很多设置，如域名，主题，这里就不多说了，自行百度谷歌吧，当然建议你先看看官方文档了解一下。 <a href="http://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Hexo" >
+    <span class="tag-code">Hexo</span>
+  </a>
+
+  <a href="/tags#Coding" >
+    <span class="tag-code">Coding</span>
+  </a>
+
+  <a href="/tags#博客" >
+    <span class="tag-code">博客</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#环境安装"><span class="toc-nav-text">环境安装</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Hexo"><span class="toc-nav-text">安装Hexo</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#初始化博客目录"><span class="toc-nav-text">初始化博客目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#运行博客"><span class="toc-nav-text">运行博客</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Coding创建博客项目"><span class="toc-nav-text">Coding创建博客项目</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#本地hexo项目托管到Coding上"><span class="toc-nav-text">本地hexo项目托管到Coding上</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置git相关信息"><span class="toc-nav-text">配置git相关信息</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Coding上部署公钥"><span class="toc-nav-text">Coding上部署公钥</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置博客git地址"><span class="toc-nav-text">配置博客git地址</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#部署博客"><span class="toc-nav-text">部署博客</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2017/04/07/Windows7+Hexo+Coding搭建个人博客/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "phoenixman";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Windows7+Hexo+Coding搭建个人博客",
+        owner: "phoenixman",
+        repo: "phoenixman.github.io",
+        oauth: {
+          client_id: "6afe63f5d310f93dce88",
+          client_secret: "84c82d01b3c053f1db54e1cf93ac22b2a02a4e77"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2017 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
