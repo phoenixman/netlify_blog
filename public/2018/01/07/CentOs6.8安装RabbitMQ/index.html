@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      CentOS6.8��װRabbitMq | FENG&#39;BLOG
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>FENG'BLOG</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>CentOS6.8��װRabbitMq</h2>
+  <p class="post-date">2018-01-07</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>һ����װ����</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ͳ�汾��CentOS 6.8</div><div class="line">RabbitMq:3.6.14</div><div class="line">Elang:OTP 20.1</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>������װ����</p>
+<p>1����װwget</p>
+<p>wget��һ�����Դ������������ļ��Ĺ��ߣ�֧��http,https��ftp�¡���������ϵͳ�Ѿ���װ��wget,�������β��裬���濪ʼ��װwget��</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install wget</div></pre></td></tr></table></figure>
+<p>2����װ����<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install make gcc gcc-c++ kernel-devel m4 ncurses-devel openssl-devel unixODBC-devel</div></pre></td></tr></table></figure></p>
+<p>3����װElang</p>
+<p>ʹ��wget��<a href="http://www.erlang.org/" target="_blank" rel="external">http://www.erlang.org/</a> ���ذ�װ��,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://erlang.org/download/otp_src_20.1.tar.gz</div></pre></td></tr></table></figure></p>
+<p>��ѹ��</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">xz -d otp_src_20.1.tar.gz</div><div class="line"></div><div class="line">tar -xvf otp_src_20.1.tar</div><div class="line"></div><div class="line">cd otp_src_20.1</div></pre></td></tr></table></figure>
+<p>���ã�</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/usr/local/erlang --with-ssl -enable-threads -enable-smmp-support -enable-kernel-poll --enable-hipe --without-javac</div></pre></td></tr></table></figure>
+<p>��ʼ���룺</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">marke</div></pre></td></tr></table></figure>
+<p>������������/bin/sh: autoreconf: command not found����������ִ��һ�°�װ��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install install autoconf automake libtool</div></pre></td></tr></table></figure></p>
+<p>�ٴα��밲װ��</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">marke &amp; make install</div></pre></td></tr></table></figure>
+<p>����profile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ERLANG_HOME=/usr/local/erlang</div><div class="line">PATH=$PATH:$JAVA_HOME/bin:$ERLANG_HOME/bin</div></pre></td></tr></table></figure>
+<p>ʹ������Ч��</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div><div class="line">echo $PATH</div></pre></td></tr></table></figure>
+<p>����Erlang�Ƿ���װװ�ɹ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@host home]# erl</div><div class="line">Erlang/OTP 20 [erts-9.1] [source] [smp:2:2] [ds:2:2:10] [async-threads:10] [hipe] [kernel-poll:false]</div><div class="line"></div><div class="line">Eshell V9.1  (abort with ^G)</div><div class="line">1&gt;</div></pre></td></tr></table></figure></p>
+<p>3����װRabbitMq</p>
+<p>���أ�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.14/rabbitmq-server-generic-unix-3.6.14.tar.xz</div></pre></td></tr></table></figure></p>
+<p>��ѹ ��</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xz -d rabbitmq-server-generic-unix-3.6.14.tar.xz</div><div class="line">tar -xvf rabbitmq-server-generic-unix-3.6.14.tar.xz</div></pre></td></tr></table></figure>
+<p>����web�������棺<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd ./rabbitmq_server-3.6.3</div><div class="line">cd sbin/</div><div class="line">./rabbitmq-plugins enable rabbitmq_management</div></pre></td></tr></table></figure></p>
+<p>����RabbitMQ:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./rabbitmq-server -detached</div></pre></td></tr></table></figure></p>
+<p>���ʣ�</p>
+<p><a href="http://ip:15672/" target="_blank" rel="external">http://ip:15672/</a></p>
+<p>�����û��ͷ���Ȩ�ޣ�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">./rabbitmqctl add_user root root</div><div class="line"></div><div class="line">./rabbitmqctl set_permissions -p &quot;/&quot; root &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</div><div class="line"></div><div class="line">./rabbitmqctl set_user_tags root administrator</div></pre></td></tr></table></figure></p>
+<p>���ְ�װ��ʽ��û��rabbitmq-config�ļ��ģ���������RabbitMQ�Ѿ����������ˣ���ô����ͨ���鿴������������RabbitMQ��������Ϣ��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps -ef|grep rabbitmq</div></pre></td></tr></table></figure></p>
+<p>���������������£�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[root@host rabbitmq_server-3.6.14]# ps -ef|grep rabbitmq</div><div class="line">root     31355 26944  0 09:25 pts/2    00:00:00 /bin/sh ./rabbitmq-server</div><div class="line">root     31480 31355  1 09:25 pts/2    00:00:03 /usr/local/erlang/lib/erlang/erts-9.1/bin/beam.smp -W w -A 64 -P 1048576 -t 5000000 -stbt db -zdbbl 128000 -K true -B i -- -root /usr/local/erlang/lib/erlang -progname erl -- -home /root -- -pa /home/rabbitmq_server-3.6.14/ebin -noshell -noinput -s rabbit boot -sname rabbit@host -boot start_sasl -kernel inet_default_connect_options [&#123;nodelay,true&#125;] -sasl errlog_type error -sasl sasl_error_logger false -rabbit error_logger &#123;file,&quot;/home/rabbitmq_server-3.6.14/var/log/rabbitmq/rabbit@host.log&quot;&#125; -rabbit sasl_error_logger &#123;file,&quot;/home/rabbitmq_server-3.6.14/var/log/rabbitmq/rabbit@host-sasl.log&quot;&#125; -rabbit enabled_plugins_file &quot;/home/rabbitmq_server-3.6.14/etc/rabbitmq/enabled_plugins&quot; -rabbit plugins_dir &quot;/home/rabbitmq_server-3.6.14/plugins&quot; -rabbit plugins_expand_dir &quot;/home/rabbitmq_server-3.6.14/var/lib/rabbitmq/mnesia/rabbit@host-plugins-expand&quot; -os_mon start_cpu_sup false -os_mon start_disksup false -os_mon start_memsup false -mnesia dir &quot;/home/rabbitmq_server-3.6.14/var/lib/rabbitmq/mnesia/rabbit@host&quot; -kernel inet_dist_listen_min 25672 -kernel inet_dist_listen_max 25672</div></pre></td></tr></table></figure></p>
+<p>�����������п��Կ���RabbitMQ������־������/home/rabbitmq_server-3.6.14/var/log/rabbitmq/rabbit@host.log</p>
+<p>��ô�򿪴��ļ��������£�</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">=INFO REPORT==== 11-Jan-2018::08:47:07 ===</div><div class="line">Starting RabbitMQ 3.6.14 on Erlang 20.1</div><div class="line">Copyright (C) 2007-2017 Pivotal Software, Inc.</div><div class="line">Licensed under the MPL.  See http://www.rabbitmq.com/</div><div class="line"></div><div class="line">=INFO REPORT==== 11-Jan-2018::08:47:07 ===</div><div class="line">node           : rabbit@host</div><div class="line">home dir       : /root</div><div class="line">config file(s) : /home/rabbitmq_server-3.6.14/etc/rabbitmq/rabbitmq.config (not found)</div><div class="line">cookie hash    : dT/39kOrp4RVj4klcvDniw==</div><div class="line">log            : /home/rabbitmq_server-3.6.14/var/log/rabbitmq/rabbit@host.log</div><div class="line">sasl log       : /home/rabbitmq_server-3.6.14/var/log/rabbitmq/rabbit@host-sasl.log</div><div class="line">database dir   : /home/rabbitmq_server-3.6.14/var/lib/rabbitmq/mnesia/rabbit@host</div><div class="line"></div><div class="line">=WARNING REPORT==== 11-Jan-2018::08:47:08 ===</div><div class="line">You are using a 32-bit version of Erlang: you may run into memory address</div><div class="line">space exhaustion or statistic counters overflow.</div><div class="line"></div><div class="line">=INFO REPORT==== 11-Jan-2018::08:47:08 ===</div><div class="line">Memory high watermark set to 406 MiB (425874227 bytes) of 1015 MiB (1064685568 bytes) total</div><div class="line"></div><div class="line">=INFO REPORT==== 11-Jan-2018::08:47:08 ===</div><div class="line">Enabling free disk space monitoring</div><div class="line"></div><div class="line">=INFO REPORT==== 11-Jan-2018::08:47:08 ===</div><div class="line">Disk free limit set to 50MB</div><div class="line"></div><div class="line">=INFO REPORT==== 11-Jan-2018::08:47:08 ===</div><div class="line">Limiting to approx 924 file handles (829 sockets)</div><div class="line"></div><div class="line">=INFO REPORT==== 11-Jan-2018::08:47:08 ===</div><div class="line">&quot;rabbit@host.log&quot; 699L, 23378C</div></pre></td></tr></table></figure>
+<p>���Կ���RabbitMQ��ȡ�������ļ�Ϊ<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">config file(s) : /home/rabbitmq_server-3.6.14/etc/rabbitmq/rabbitmq.config (not found)</div></pre></td></tr></table></figure></p>
+<p>����û�ҵ�rabbitmq.config�ļ���</p>
+<p>���ǿ��Դ�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://github.com/rabbitmq/rabbitmq-server/blob/master/docs/rabbitmq.config.example</div></pre></td></tr></table></figure></p>
+<p>��������һ�������ļ������ӣ��ŵ�/home/rabbitmq_server-3.6.14/etc/rabbitmq/Ŀ¼�¡�</p>
+<p>����RabbitMQ����root�û���¼���ɡ�</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#RabbitMq" >
+    <span class="tag-code">RabbitMq</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2018/01/07/CentOs6.8安装RabbitMQ/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "phoenixman";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "CentOS6.8��װRabbitMq",
+        owner: "phoenixman",
+        repo: "phoenixman.github.io",
+        oauth: {
+          client_id: "6afe63f5d310f93dce88",
+          client_secret: "84c82d01b3c053f1db54e1cf93ac22b2a02a4e77"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2018 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
